@@ -15,6 +15,7 @@ public class Intake extends Subsystem {
 
     public Intake(double speed){
         this.speed = speed;
+        motor.setInverted(IS_MOTOR_INVERTED);
     }
 
     @Override

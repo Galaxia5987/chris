@@ -19,6 +19,7 @@ public class Constants {
     public static class Intake {
         public static final boolean UP = false;
         public static final boolean DOWN = true;
+        public static final boolean IS_MOTOR_INVERTED = false;
     }
 
     public static class ExampleSubsystem1 {
