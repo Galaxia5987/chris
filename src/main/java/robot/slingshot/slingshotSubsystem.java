@@ -43,6 +43,9 @@ public class slingshotSubsystem extends Subsystem {
         shifter.set(DoubleSolenoid.Value.kForward);
     }
 
+    public double getPosition(){
+        return convertTickToMeters(slingMaster.getSelectedSensorPosition());
+    }
     @Override
     protected void initDefaultCommand() {
 
