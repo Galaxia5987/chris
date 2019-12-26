@@ -1,4 +1,4 @@
-package robot.subsystems.examplesubsystem.commands;
+package robot.Climb.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import robot.Robot;
