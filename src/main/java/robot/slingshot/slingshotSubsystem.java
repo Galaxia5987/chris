@@ -2,6 +2,8 @@ package robot.slingshot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -25,6 +27,8 @@ public class slingshotSubsystem extends Subsystem {
 
         slingMaster.configPeakCurrentLimit(Constants.slingshot.MAX_MASTER_CURRENT);
         slingMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
+        slingMaster.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyClosed);
     }
 
     public double convertTickToMeters(double ticks){
@@ -59,7 +63,12 @@ public class slingshotSubsystem extends Subsystem {
         slingMaster.setSelectedSensorPosition(0);
     }
 
-
+    public void update(){
+        if (slingMaster.getSensorCollection().isFwdLimitSwitchClosed()){
+            Reset();
+            shiftToConnect();
+        }
+    }
 
     @Override
     protected void initDefaultCommand() {
