@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.subsystems.wrist.Gripper;
 
 
 /**
@@ -25,6 +26,7 @@ public class Robot extends TimedRobot {
     public static final boolean isRobotA = true;
     // The robot's subsystems
     public static final ExampleSubsystem m_example = new ExampleSubsystem();
+    public static final Gripper gripper = new Gripper();
     //public static final Elevator m_elevator = new Elevator();
     public static RobotContainer m_robotContainer;
 
