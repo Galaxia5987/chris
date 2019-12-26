@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import robot.subsystems.examplesubsystem.commands.ExampleCommand;
+import robot.Climb.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator

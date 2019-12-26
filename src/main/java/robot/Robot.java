@@ -10,7 +10,7 @@ package robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.Climb.Climb;
 
 
 /**
@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
     //Robot A toggle (true for robot a, false for robot b)
     public static final boolean isRobotA = true;
     // The robot's subsystems
-    public static final ExampleSubsystem m_example = new ExampleSubsystem();
+    public static final Climb m_example = new Climb();
     //public static final Elevator m_elevator = new Elevator();
     public static RobotContainer m_robotContainer;
 
