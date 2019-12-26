@@ -46,8 +46,25 @@ public class slingshotSubsystem extends Subsystem {
     public double getPosition(){
         return convertTickToMeters(slingMaster.getSelectedSensorPosition());
     }
+
+    public void setPosition(double position){
+        slingMaster.set(ControlMode.Position, convertMetersToTicks(position));
+    }
+
+    public void loadByDistance(double distance){
+        slingMaster.set(ControlMode.Position, convertMetersToTicks(getPosition() + distance));
+    }
+
+    public void Reset(){
+        slingMaster.setSelectedSensorPosition(0);
+    }
+
+
+
     @Override
     protected void initDefaultCommand() {
 
     }
+
+
 }
