@@ -1,4 +1,4 @@
-package robot.subsystems.examplesubsystem;
+package robot.subsystems.examplesubsystem.intake;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
