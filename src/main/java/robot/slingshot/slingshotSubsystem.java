@@ -27,6 +27,13 @@ public class slingshotSubsystem extends Subsystem {
         slingMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     }
 
+    public double convertTickToMeters(double ticks){
+        return ticks/Constants.slingshot.TICKS_PER_METER;
+    }
+
+    public double convertMetersToTicks(double meters){
+        return meters*Constants.slingshot.TICKS_PER_METER;
+    }
 
     @Override
     protected void initDefaultCommand() {
