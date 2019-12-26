@@ -1,5 +1,6 @@
 package robot.subsystems.examplesubsystem;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,15 +22,25 @@ public class Intake extends Subsystem {
 
     }
 
+    /**
+     * set the direction of the solenoid down
+     */
     public void goUp(){
         solenoid.set(UP);
     }
 
+    /**
+     * set the direction of the solenoid down
+     */
     public void goDown(){
         solenoid.set(DOWN);
     }
 
-    public void turnWheels(double speed){}
+    /**
+     * turn the wheels of the intake
+     * @param speed the speed the wheels spin
+     */
+    public void turnWheels(double speed){
         motor.set(ControlMode.PercentOutput, speed);
     }
 
