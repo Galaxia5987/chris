@@ -25,7 +25,8 @@ public class Constants {
     }
 
     public static class slingshot{
-
+        public static int MAX_MASTER_CURRENT = 40;
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
     }
 
     static { // Runs alongside main
@@ -79,7 +80,8 @@ class BConstants {
     }
 
     public static class slingshot{
-
+        public static int MAX_MASTER_CURRENT = 40;
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
     }
 
 }
