@@ -1,9 +1,12 @@
 package robot.slingshot;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import robot.Constants;
 import robot.Ports;
 
 /**
@@ -15,8 +18,13 @@ public class slingshotSubsystem extends Subsystem {
     private VictorSPX slingSlave2 = new VictorSPX(Ports.slingshot.SLING_SLAVE_2);
     private DoubleSolenoid shifter = new DoubleSolenoid(1, Ports.slingshot.SHIFTER_FORWARD_PORT,Ports.slingshot.SHIFTER_REVERSE_PORT);
 
-    public slingshotSubsystem() {
 
+    public slingshotSubsystem() {
+        slingSlave1.follow(slingMaster);
+        slingSlave2.follow(slingMaster);
+
+        slingMaster.configPeakCurrentLimit(Constants.slingshot.MAX_MASTER_CURRENT);
+        slingMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     }
 
 
