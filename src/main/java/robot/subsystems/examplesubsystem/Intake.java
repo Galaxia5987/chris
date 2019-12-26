@@ -30,6 +30,8 @@ public class Intake extends Subsystem {
     }
 
     public void turnWheels(double speed){}
+        motor.set(ControlMode.PercentOutput, speed);
+    }
 
 
 
