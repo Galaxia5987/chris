@@ -17,8 +17,6 @@ public class Constants {
     //public static final double TIME_STEP = CONST(0.02);
 
     public static class Intake {
-        public static final boolean UP = false;
-        public static final boolean DOWN = true;
         public static final boolean IS_MOTOR_INVERTED = false;
     }
 

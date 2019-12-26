@@ -12,8 +12,9 @@ public class Intake extends Subsystem {
     private Solenoid solenoid = new Solenoid(SOLENOID);
     private VictorSPX motor = new VictorSPX(MOTOR);
     private double speed;
+    private Direction direction;
 
-    public Intake(double speed){
+    public Intake(double speed, Direction direction){
         this.speed = speed;
         motor.setInverted(IS_MOTOR_INVERTED);
     }
@@ -24,17 +25,13 @@ public class Intake extends Subsystem {
     }
 
     /**
-     * set the direction of the solenoid down
+     * set the direction of the solenoid
      */
-    public void goUp(){
-        solenoid.set(UP);
-    }
-
-    /**
-     * set the direction of the solenoid down
-     */
-    public void goDown(){
-        solenoid.set(DOWN);
+    public void setPosition(Direction direction){
+        if (direction == direction.UP)
+            solenoid.set(false);
+        else
+            solenoid.set(true);
     }
 
     /**
@@ -45,6 +42,10 @@ public class Intake extends Subsystem {
         motor.set(ControlMode.PercentOutput, speed);
     }
 
+    public enum Direction{
+        UP,
+        DOWN
+    }
 
 
 }
