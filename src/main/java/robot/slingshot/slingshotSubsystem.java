@@ -35,6 +35,14 @@ public class slingshotSubsystem extends Subsystem {
         return meters*Constants.slingshot.TICKS_PER_METER;
     }
 
+    public void shiftToNeutral(){
+        shifter.set(DoubleSolenoid.Value.kReverse);
+    }
+
+    public void shiftToConnect(){
+        shifter.set(DoubleSolenoid.Value.kForward);
+    }
+
     @Override
     protected void initDefaultCommand() {
 
