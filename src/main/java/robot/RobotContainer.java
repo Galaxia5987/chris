@@ -44,7 +44,7 @@ public class RobotContainer {
     private void configureButtonBindings() {
         b.whenPressed(new PullBall(0.5, 5));
         x.whenPressed(new MoveIntake(Direction.UP));
-        y.whenPressed(new MoveIntake(Direction.DOWN));
+        x.toggleWhenPressed(new MoveIntake());
         // Grab the hatch when the 'A' button is pressed.
         new JoystickButton(xbox,1).whenPressed(new ExampleCommand(0.5));
         //new JoystickButton(m_driverController, Button.kB.value).whenPressed(new ExampleCommand());

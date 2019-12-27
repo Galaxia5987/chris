@@ -13,6 +13,8 @@ public class MoveIntake extends Command {
         this.direction = direction;
     }
 
+    public MoveIntake(){}
+
     @Override
     protected void initialize(){
         intake.setPosition(direction);
