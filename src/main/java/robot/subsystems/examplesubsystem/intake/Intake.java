@@ -32,6 +32,13 @@ public class Intake extends Subsystem {
     }
 
     /**
+     * @return return the position of the intake
+     */
+    public boolean getCurrentPosition(){
+        return solenoid.get();
+    }
+
+    /**
      * turn the wheels of the intake
      * @param speed the speed the wheels spin
      */
