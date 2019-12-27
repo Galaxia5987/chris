@@ -28,7 +28,7 @@ public class slingshotSubsystem extends Subsystem {
         slingMaster.configPeakCurrentLimit(Constants.slingshot.MAX_MASTER_CURRENT);
         slingMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
-        slingMaster.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyClosed);
+        slingMaster.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
     }
 
     public double convertTickToMeters(double ticks){
