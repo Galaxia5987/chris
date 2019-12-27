@@ -72,24 +72,36 @@ public class Climb extends Subsystem {
     }
 
     /**
-     * /----------------------------------------------------------------------------------------------/
      *  Moves the climb system after a set height is decided in the {@link #setHeight(double)} command
-     * /----------------------------------------------------------------------------------------------/
      */
     public void climb(){
-        if(targetHeight < Constants.ClimbSubsystem.DISABLE_THRESHOLD && getHeight() < Constants.ClimbSubsystem.DISABLE_THRESHOLD){
-            climbMaster.set(ControlMode.PercentOutput, 0);
-        }
-        else{
-            climbMaster.set(ControlMode.MotionMagic, targetHeight, DemandType.ArbitraryFeedForward, Constants.ClimbSubsystem.GRAVITY_COMPENSATION);
-        }
+        climbMaster.set(ControlMode.MotionMagic, targetHeight, DemandType.ArbitraryFeedForward, Constants.ClimbSubsystem.GRAVITY_COMPENSATION);
+
     }
 
 
+    /**
+     *  Called at the end of a climb command, in case the climb is at it's starting position it will not apply any force
+     */
+    public void holdInPlace(){
+        if(targetHeight < Constants.ClimbSubsystem.DISABLE_THRESHOLD && getHeight() < Constants.ClimbSubsystem.DISABLE_THRESHOLD)
+            climbMaster.set(ControlMode.PercentOutput, 0);
+    }
+
+    /**
+     *
+     * @param ticks
+     * @return The given amount of ticks in meters //TODO: use coefficient instead lol
+     */
     private double convertTicksToMeters(int ticks){
         return ticks/Constants.ClimbSubsystem.TICKS_PER_METER;
     }
 
+    /**
+     *
+     * @param meters
+     * @return The given amount of meters in ticks //TODO: use coefficient instead lol
+     */
     private double convertMetersToTicks(double meters){
         return meters*Constants.ClimbSubsystem.TICKS_PER_METER;
     }
