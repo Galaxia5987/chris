@@ -10,6 +10,11 @@ public class Ports {
         //public static int TALON_PORT = 1;
     }
 
+    public class Wrist {
+        public static final int MASTER = 0;
+        public static final int SLAVE = 0;
+    }
+
     public static class slingshot{
         public static int SLING_MASTER = 0;
         public static int SLING_SLAVE_1 = 0;
