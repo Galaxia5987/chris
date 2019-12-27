@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 
 public class PullBall extends Command {
+    private Timer timer = new Timer();
 
     public PullBall(){
 
