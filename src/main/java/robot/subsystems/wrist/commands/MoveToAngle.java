@@ -14,18 +14,21 @@ public class MoveToAngle extends Command {
 
     @Override
     protected void initialize() {
+        wrist.turnTo(angle);
     }
 
     @Override
     protected void execute() {
+        wrist.turnTo(angle);
     }
 
     @Override
     protected boolean isFinished() {
-        return Math.abs();
+        return Math.abs(wrist.getAngle() - angle) < (angle * 0.05);
     }
 
     @Override
     protected void end() {
+        wrist.end();
     }
 }
