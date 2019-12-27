@@ -35,7 +35,7 @@ public class Intake extends Subsystem {
      * turn the wheels of the intake
      * @param speed the speed the wheels spin
      */
-    public void turnWheels(double speed){
+    public void spinWheels(double speed){
         motor.set(ControlMode.PercentOutput, speed);
     }
 
