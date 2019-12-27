@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.subsystems.examplesubsystem.intake.Intake;
 
 
 /**
@@ -21,6 +22,7 @@ import robot.subsystems.examplesubsystem.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
+    public static final Intake intake = new Intake();
     //Robot A toggle (true for robot a, false for robot b)
     public static final boolean isRobotA = true;
     // The robot's subsystems
