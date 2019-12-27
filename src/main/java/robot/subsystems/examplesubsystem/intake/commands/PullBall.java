@@ -30,10 +30,13 @@ public class PullBall extends Command {
 
     @Override
     protected boolean isFinished() {
-        return timer.get() >= timeout;
+        return timeout > 0 && timer.get() >= timeout;
     }
 
     @Override
-    protected void end(){}
+    protected void end(){
+        timer.stop();
+        intake.spinWheels(0);
+    }
 
 }
