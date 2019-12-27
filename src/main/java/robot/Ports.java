@@ -9,4 +9,12 @@ public class Ports {
     public static class ExampleSubsystem1 {
         //public static int TALON_PORT = 1;
     }
+
+    public static class slingshot{
+        public static int SLING_MASTER = 0;
+        public static int SLING_SLAVE_1 = 0;
+        public static int SLING_SLAVE_2 = 0;
+        public static int SHIFTER_FORWARD_PORT =0;
+        public static int SHIFTER_REVERSE_PORT =0;
+    }
 }

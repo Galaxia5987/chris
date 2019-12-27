@@ -1,5 +1,6 @@
 package robot;
 
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
@@ -21,6 +22,14 @@ public class Constants {
 
         //public static final double TICKS_PER_METER = CONST(256 / (4*0.0254*Math.PI));
         //public static final double MAX_VELOCITY = CONST(5);
+    }
+
+    public static class slingshot{
+        public static int MAX_MASTER_CURRENT = 40;//[A]
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
+        public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;//[N/M]
+        public static double LENGTH_OF_SPRING = 1;//[M]
     }
 
     static { // Runs alongside main
@@ -71,6 +80,14 @@ class BConstants {
     public static class ExampleSubsystem1 {
         //public static final double TICKS_PER_METER = CONST(512 / (4*0.0254*Math.PI));
         //public static final double MAX_VELOCITY = CONST(10);
+    }
+
+    public static class slingshot{
+        public static int MAX_MASTER_CURRENT = 40;//[A]
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
+        public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;//[N/M]
+        public static double LENGTH_OF_SPRING = 1;//[M]
     }
 
 }
