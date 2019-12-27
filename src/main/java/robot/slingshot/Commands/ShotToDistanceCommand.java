@@ -4,11 +4,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import robot.Constants;
 import robot.Robot;
 
+/**
+ * This command would shot the cargo to a certain distance
+ */
 public class ShotToDistanceCommand extends Command {
 
 
-    private double targetDistance;
-    private double loadPosition;
+    private double targetDistance;// the desired distance for the cargo
+    private double loadPosition;// where the spring should be
 
     public ShotToDistanceCommand(double targetDistance) {
         requires(Robot.m_slingshot);
@@ -17,7 +20,7 @@ public class ShotToDistanceCommand extends Command {
 
     @Override
     protected void initialize() {
-        loadPosition = calculateForcePerDistance(targetDistance)/Constants.slingshot.K_SPRING;
+        loadPosition = calculateForcePerDistance(targetDistance)/Constants.slingshot.K_SPRING;//calculate the position of the spring
         Robot.m_slingshot.setPosition(loadPosition);
     }
 
@@ -41,7 +44,12 @@ public class ShotToDistanceCommand extends Command {
         Robot.m_slingshot.shiftToNeutral();
     }
 
+    /**
+     * This method would calculate the force you need to apply on the cargo to shot him to certain distance
+     * @param distance the distance in meters
+     * @return the force you need to apply in newtons
+     */
     protected double calculateForcePerDistance(double distance){
-        return 0;//TODO find the actual calculation
+        return 0;//TODO find the actual calculation (the calculation would be found through an experiment)
     }
 }
