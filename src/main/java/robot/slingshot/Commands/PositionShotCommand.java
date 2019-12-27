@@ -26,7 +26,7 @@ public class PositionShotCommand extends Command {
 
     @Override
     protected boolean isFinished() {
-        return Math.abs(Robot.m_slingshot.getPosition()- targetPosition)< Constants.slingshot.TOLERANCE;
+        return Math.abs(Robot.m_slingshot.getPosition() - targetPosition) < Constants.slingshot.TOLERANCE;
     }
 
     @Override

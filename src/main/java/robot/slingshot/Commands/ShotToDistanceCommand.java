@@ -20,7 +20,7 @@ public class ShotToDistanceCommand extends Command {
 
     @Override
     protected void initialize() {
-        loadPosition = calculateForcePerDistance(targetDistance)/Constants.slingshot.K_SPRING;//calculate the position of the spring
+        loadPosition = calculateForcePerDistance(targetDistance) / Constants.slingshot.K_SPRING;//calculate the position of the spring
         Robot.m_slingshot.setPosition(loadPosition);
     }
 
@@ -31,7 +31,7 @@ public class ShotToDistanceCommand extends Command {
 
     @Override
     protected boolean isFinished() {
-        return (loadPosition - Robot.m_slingshot.getPosition())< Constants.slingshot.TOLERANCE;
+        return (loadPosition - Robot.m_slingshot.getPosition()) < Constants.slingshot.TOLERANCE;
     }
 
     @Override
@@ -46,10 +46,11 @@ public class ShotToDistanceCommand extends Command {
 
     /**
      * This method would calculate the force you need to apply on the cargo to shot him to certain distance
+     *
      * @param distance the distance in meters
      * @return the force you need to apply in newtons
      */
-    protected double calculateForcePerDistance(double distance){
+    protected double calculateForcePerDistance(double distance) {
         return 0;//TODO find the actual calculation (the calculation would be found through an experiment)
     }
 }

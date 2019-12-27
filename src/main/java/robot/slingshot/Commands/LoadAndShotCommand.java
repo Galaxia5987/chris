@@ -27,7 +27,7 @@ public class LoadAndShotCommand extends Command {
 
     @Override
     protected boolean isFinished() {
-        return Math.abs((position-Robot.m_slingshot.getPosition())-targetDistance)< Constants.slingshot.TOLERANCE;
+        return Math.abs((position - Robot.m_slingshot.getPosition()) - targetDistance) < Constants.slingshot.TOLERANCE;
     }
 
     @Override
