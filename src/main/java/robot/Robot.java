@@ -24,7 +24,7 @@ public class Robot extends TimedRobot {
     //Robot A toggle (true for robot a, false for robot b)
     public static final boolean isRobotA = true;
     // The robot's subsystems
-    public static final Climb m_example = new Climb();
+    public static final Climb climb = new Climb();
     //public static final Elevator m_elevator = new Elevator();
     public static RobotContainer m_robotContainer;
 

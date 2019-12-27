@@ -3,13 +3,13 @@ package robot.Climb.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import robot.Robot;
 
-public class ExampleCommand extends Command {
+import static robot.Robot.climb;
 
-    private double speed;
+public class Climb extends Command {
 
     public ExampleCommand(double speed) {
         requires(Robot.m_example);
-        this.speed = speed;
+    public Climb(double height) {
     }
 
     @Override
