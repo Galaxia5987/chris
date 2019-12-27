@@ -1,5 +1,6 @@
 package robot.subsystems.wrist;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
@@ -27,7 +28,7 @@ public class Wrist extends Subsystem {
     }
 
     public void turnTo(double angle) {
-
+        masterMotor.set(ControlMode.MotionMagic,convertDegreesToTicks(angle) + applyForceByAngle(angle));
     }
 
     public void turnTo(State state) {
@@ -44,6 +45,12 @@ public class Wrist extends Subsystem {
 
     public double getAngle() {
         return convertTicksToDegrees(masterMotor.getSelectedSensorPosition());
+    }
+
+    public double applyForceByAngle(double angle) {
+        if (angle > 150 || angle < -150)
+            return convertDegreesToTicks(Math.cos(angle));
+        return convertDegreesToTicks(Math.sin(angle) / 3);
     }
 
     public enum State {
