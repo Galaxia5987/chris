@@ -22,4 +22,9 @@ public class Ports {
         public static int SHIFTER_FORWARD_PORT =0;
         public static int SHIFTER_REVERSE_PORT =0;
     }
+
+    public static class Gripper {
+        public static final int MASTER = 0; //TODO: Change to the real port
+    }
+
 }

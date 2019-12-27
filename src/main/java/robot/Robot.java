@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import robot.subsystems.slingshot.slingshotSubsystem;
 import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.subsystems.wrist.Gripper;
 import robot.subsystems.wrist.Wrist;
 
 
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
     public static final boolean isRobotA = true;
     // The robot's subsystems
     public static final ExampleSubsystem m_example = new ExampleSubsystem();
+    public static final Gripper gripper = new Gripper();
     public static final Wrist wrist = new Wrist();
     public static final slingshotSubsystem m_slingshot = new slingshotSubsystem();
     //public static final Elevator m_elevator = new Elevator();

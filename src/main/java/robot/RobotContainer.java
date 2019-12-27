@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import robot.subsystems.examplesubsystem.commands.ExampleCommand;
+import robot.subsystems.wrist.commands.InsertCube;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -41,6 +42,7 @@ public class RobotContainer {
     private void configureButtonBindings() {
         // Grab the hatch when the 'A' button is pressed.
         new JoystickButton(xbox,1).whenPressed(new ExampleCommand(0.5));
+        x.whileHeld(new InsertCube(0.5));
         //new JoystickButton(m_driverController, Button.kB.value).whenPressed(new ExampleCommand());
     }
 

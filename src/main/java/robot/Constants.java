@@ -79,6 +79,10 @@ public class Constants {
         public static final boolean SLAVE_INVERTED = false;
 
     }
+
+    public static class Gripper {
+        public static final boolean MASTER_INVERTED = false;
+    }
 }
 
 //Anything in this class will replace the original constants when boolean is true
