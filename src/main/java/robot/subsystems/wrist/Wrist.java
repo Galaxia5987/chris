@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import robot.subsystems.wrist.commands.InsertCube;
+import robot.subsystems.wrist.commands.MoveToCube;
 
 import static robot.Constants.Wrist.*;
 import static robot.Ports.Wrist.MASTER;
@@ -27,7 +27,7 @@ public class Wrist extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new InsertCube(5));
+        setDefaultCommand(new MoveToCube(5));
     }
 
     public void turnTo(double angle) {
