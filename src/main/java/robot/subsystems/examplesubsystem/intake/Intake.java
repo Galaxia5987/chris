@@ -12,6 +12,9 @@ public class Intake extends Subsystem {
     private Solenoid solenoid = new Solenoid(SOLENOID);
     private VictorSPX motor = new VictorSPX(MOTOR);
 
+    /**
+     * invert the motor
+     */
     public Intake(){
         motor.setInverted(IS_MOTOR_INVERTED);
     }
@@ -42,13 +45,16 @@ public class Intake extends Subsystem {
     }
 
     /**
-     * turn the wheels of the intake
+     * spin the wheels of the intake
      * @param speed the speed the wheels spin
      */
     public void spinWheels(double speed){
         motor.set(ControlMode.PercentOutput, speed);
     }
 
+    /**
+     * the direction of the intake
+     */
     public enum Direction{
         UP,
         DOWN
