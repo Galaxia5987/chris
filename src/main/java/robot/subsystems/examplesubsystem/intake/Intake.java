@@ -11,11 +11,8 @@ import static robot.Ports.Intake.*;
 public class Intake extends Subsystem {
     private Solenoid solenoid = new Solenoid(SOLENOID);
     private VictorSPX motor = new VictorSPX(MOTOR);
-    private double speed;
-    private Direction direction;
 
-    public Intake(double speed, Direction direction){
-        this.speed = speed;
+    public Intake(){
         motor.setInverted(IS_MOTOR_INVERTED);
     }
 
