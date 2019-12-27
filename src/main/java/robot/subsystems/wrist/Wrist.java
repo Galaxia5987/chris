@@ -34,6 +34,13 @@ public class Wrist extends Subsystem {
 
     }
 
+    public double convertTicksToDegrees(double ticks) {
+        return ticks / TICKS_PER_DEGREE;
+    }
+
+    public double convertDegreesToTicks(double degrees) {
+        return degrees * TICKS_PER_DEGREE;
+    }
 
     public enum State {
 
