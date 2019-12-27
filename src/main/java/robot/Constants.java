@@ -5,8 +5,6 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Optional;
 
-import static org.apache.commons.lang3.ObjectUtils.CONST;
-
 /**
  * A class holding all of the constants of every mechanism on the robot.
  * Place global constants in this class, and mechanism-specific constants inside their respective mechanism subclass.
@@ -61,6 +59,17 @@ public class Constants {
         }
     }
 
+    public class Wrist {
+        public static final int TIMEOUT_MS = 20;
+        public static final int PID_SLOT = 0;
+        public static final double KP = 0;
+        public static final double KI = 0;
+        public static final double KD = 0;
+        public static final double TICKS_PER_DEGREE = 0;
+        public static final boolean MASTER_INVERTED = false;
+        public static final boolean SLAVE_INVERTED = false;
+
+    }
 }
 
 //Anything in this class will replace the original constants when boolean is true
