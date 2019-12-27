@@ -17,6 +17,7 @@ import robot.subsystems.examplesubsystem.commands.ExampleCommand;
 import robot.subsystems.examplesubsystem.intake.Intake.*;
 import robot.subsystems.examplesubsystem.intake.commands.MoveIntake;
 import robot.subsystems.examplesubsystem.intake.commands.PullBall;
+import robot.subsystems.examplesubsystem.intake.commands.ShootBall;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,6 +46,7 @@ public class RobotContainer {
         b.whenPressed(new PullBall(0.5, 5));
         x.whenPressed(new MoveIntake(Direction.UP));
         x.toggleWhenPressed(new MoveIntake());
+        y.whenPressed(new ShootBall(0.5, 5));
         // Grab the hatch when the 'A' button is pressed.
         new JoystickButton(xbox,1).whenPressed(new ExampleCommand(0.5));
         //new JoystickButton(m_driverController, Button.kB.value).whenPressed(new ExampleCommand());
