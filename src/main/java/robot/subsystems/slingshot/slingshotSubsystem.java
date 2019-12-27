@@ -1,4 +1,4 @@
-package robot.slingshot;
+package robot.subsystems.slingshot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;

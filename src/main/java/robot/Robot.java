@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import robot.slingshot.slingshotSubsystem;
+import robot.subsystems.slingshot.slingshotSubsystem;
 import robot.subsystems.examplesubsystem.ExampleSubsystem;
 import robot.subsystems.wrist.Wrist;
 

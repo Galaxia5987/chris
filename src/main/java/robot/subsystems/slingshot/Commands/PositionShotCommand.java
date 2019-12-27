@@ -1,4 +1,4 @@
-package robot.slingshot.Commands;
+package robot.subsystems.slingshot.Commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
