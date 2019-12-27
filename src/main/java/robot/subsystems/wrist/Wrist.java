@@ -5,9 +5,11 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import robot.subsystems.wrist.commands.InsertCube;
 
-import static robot.Ports.Wrist.*;
 import static robot.Constants.Wrist.*;
+import static robot.Ports.Wrist.MASTER;
+import static robot.Ports.Wrist.SLAVE;
 
 public class Wrist extends Subsystem {
     private TalonSRX masterMotor = new TalonSRX(MASTER);
@@ -25,14 +27,16 @@ public class Wrist extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
+        setDefaultCommand(new InsertCube(5));
     }
 
     public void turnTo(double angle) {
-        masterMotor.set(ControlMode.MotionMagic,convertDegreesToTicks(angle) + applyForceByAngle(angle));
+        angle %= 360;
+        masterMotor.set(ControlMode.MotionMagic, convertDegreesToTicks(angle) + applyForceByAngle(angle));
     }
 
     public void turnTo(State state) {
-
+        masterMotor.set(ControlMode.PercentOutput, state.applyForces());
     }
 
     public double convertTicksToDegrees(double ticks) {
@@ -48,12 +52,33 @@ public class Wrist extends Subsystem {
     }
 
     public double applyForceByAngle(double angle) {
-        if (angle > 150 || angle < -150)
-            return convertDegreesToTicks(Math.cos(angle));
-        return convertDegreesToTicks(Math.sin(angle) / 3);
+        return convertDegreesToTicks(Math.cos(angle));
+    }
+
+    public void end() {
+        masterMotor.config_kF(PID_SLOT, applyForceByAngle(getAngle()), TIMEOUT_MS);
     }
 
     public enum State {
+        GET {
+            @Override
+            public double applyForces() {
+                return -50;
+            }
+        },
+        SHOOT {
+            @Override
+            public double applyForces() {
+                return 50;
+            }
+        },
+        REVERSE_SHOOT {
+            @Override
+            public double applyForces() {
+                return 50;
+            }
+        };
 
+        public abstract double applyForces();
     }
 }
