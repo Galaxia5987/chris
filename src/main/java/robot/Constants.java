@@ -15,6 +15,10 @@ public class Constants {
     //All general constants go here
     //public static final double TIME_STEP = CONST(0.02);
 
+    public static class Intake {
+        public static final boolean IS_MOTOR_INVERTED = false;
+    }
+
     public static class ExampleSubsystem1 {
         //All of the Subsystem specific constants go here,and need to be static.
 

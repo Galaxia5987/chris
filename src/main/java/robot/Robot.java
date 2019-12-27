@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import robot.subsystems.slingshot.slingshotSubsystem;
 import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.subsystems.examplesubsystem.intake.Intake;
 import robot.subsystems.wrist.Gripper;
 import robot.subsystems.wrist.Wrist;
 
@@ -25,6 +26,7 @@ import robot.subsystems.wrist.Wrist;
  * project.
  */
 public class Robot extends TimedRobot {
+    public static final Intake intake = new Intake();
     //Robot A toggle (true for robot a, false for robot b)
     public static final boolean isRobotA = true;
     // The robot's subsystems
