@@ -22,18 +22,22 @@ public class Climb extends Subsystem {
     private double targetHeight = 0;
 
     public Climb() {
+        //Encoder configuration
         climbMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, Constants.TALON_TIME_OUT_MS);
         climbMaster.setSelectedSensorPosition(0);
 
+        //Motor invertion
         climbMaster.setInverted(Constants.ClimbSubsystem.CLIMB_MASTER_INVERTED);
         climbSlave.setInverted(Constants.ClimbSubsystem.CLIMB_SLAVE_INVERTED);
         railMotor.setInverted(Constants.ClimbSubsystem.RAIL_MOTOR_INVERTED);
 
+        //Encoder invertion
         climbMaster.setSensorPhase(Constants.ClimbSubsystem.CLIMB_ENCODER_INVERTED);
 
-
+        //Follow configuration
         climbSlave.follow(climbMaster);
 
+        //PIDF configurations
         climbMaster.config_kP(0, Constants.ClimbSubsystem.CLIMB_PIDF[0], Constants.TALON_TIME_OUT_MS);
         climbMaster.config_kI(0, Constants.ClimbSubsystem.CLIMB_PIDF[1], Constants.TALON_TIME_OUT_MS);
         climbMaster.config_kD(0, Constants.ClimbSubsystem.CLIMB_PIDF[2], Constants.TALON_TIME_OUT_MS);
@@ -42,10 +46,21 @@ public class Climb extends Subsystem {
 
     }
 
+
+    /**
+     * Sets the wanted height for the climb
+     * @param height wanted height for the climb
+     */
     public void setHeight(double height){
-        targetHeight = height;
+        if (height > 0 && height < Constants.ClimbSubsystem.MAX_CLIMB_HEIGHT)
+            targetHeight = height;
+
     }
 
+    /**
+     *
+     * @return the current height of the robot as part of the climb, 0 - at ground level, max height(constant number) - robot has finished a full climb to level 3
+     */
     public double getHeight(){
         return convertTicksToMeters(climbMaster.getSelectedSensorPosition());
     }
@@ -56,6 +71,11 @@ public class Climb extends Subsystem {
         }
     }
 
+    /**
+     * /----------------------------------------------------------------------------------------------/
+     *  Moves the climb system after a set height is decided in the {@link #setHeight(double)} command
+     * /----------------------------------------------------------------------------------------------/
+     */
     public void climb(){
         if(targetHeight < Constants.ClimbSubsystem.DISABLE_THRESHOLD && getHeight() < Constants.ClimbSubsystem.DISABLE_THRESHOLD){
             climbMaster.set(ControlMode.PercentOutput, 0);
