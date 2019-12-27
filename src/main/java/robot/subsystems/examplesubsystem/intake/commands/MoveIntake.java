@@ -12,10 +12,10 @@ public class MoveIntake extends Command {
         requires(intake);
         this.direction = direction;
     }
-    
+
     @Override
     protected void initialize(){
-
+        intake.setPosition(direction);
     }
 
     @Override
