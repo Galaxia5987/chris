@@ -12,14 +12,15 @@ public class PullBall extends Command {
     private double timeout;
 
     public PullBall(double speed, double timeout){
+        requires(intake);
         this.speed = speed;
         this.timeout = timeout;
-        requires(intake);
     }
 
     @Override
     protected void initialize(){
-
+        timer.reset();
+        timer.start();
     }
 
     @Override
