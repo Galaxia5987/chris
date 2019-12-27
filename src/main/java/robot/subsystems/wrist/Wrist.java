@@ -42,6 +42,10 @@ public class Wrist extends Subsystem {
         return degrees * TICKS_PER_DEGREE;
     }
 
+    public double getAngle() {
+        return convertTicksToDegrees(masterMotor.getSelectedSensorPosition());
+    }
+
     public enum State {
 
     }
