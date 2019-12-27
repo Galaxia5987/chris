@@ -28,6 +28,7 @@ public class Constants {
         public static int MAX_MASTER_CURRENT = 40;
         public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
         public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;
     }
 
     static { // Runs alongside main
@@ -84,6 +85,7 @@ class BConstants {
         public static int MAX_MASTER_CURRENT = 40;
         public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
         public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;
     }
 
 }
