@@ -9,4 +9,9 @@ public class Ports {
     public static class ExampleSubsystem1 {
         //public static int TALON_PORT = 1;
     }
+
+    public class Wrist {
+        public static final int MASTER = 0;
+        public static final int SLAVE = 0;
+    }
 }
