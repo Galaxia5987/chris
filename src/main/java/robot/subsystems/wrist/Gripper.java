@@ -9,7 +9,6 @@ import static robot.Constants.Gripper.MASTER_INVERTED;
 import static robot.Ports.Gripper.MASTER;
 
 public class Gripper extends Subsystem {
-
     private VictorSPX master = new VictorSPX(MASTER);
 
     public Gripper() {
@@ -21,8 +20,12 @@ public class Gripper extends Subsystem {
         setDefaultCommand(new InsertCube(0.5, 5));
     }
 
+    /**
+     * Set the speed for the gripper controllers.
+     *
+     * @param speed the desired speed.
+     */
     public void setSpeed(double speed) {
         master.set(ControlMode.PercentOutput, speed);
     }
-
 }
