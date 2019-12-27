@@ -7,18 +7,21 @@ import static robot.Robot.climb;
 
 public class Climb extends Command {
 
-    public ExampleCommand(double speed) {
-        requires(Robot.m_example);
+    private double height;
+
     public Climb(double height) {
+        requires(climb);
+        this.height = height;
     }
 
     @Override
     protected void initialize() {
+        climb.setHeight(height);
     }
 
     @Override
     protected void execute() {
-        System.out.println(speed);
+        climb.climb();
 
     }
 
@@ -34,5 +37,6 @@ public class Climb extends Command {
 
     @Override
     protected void end() {
+        climb.holdInPlace();
     }
 }
