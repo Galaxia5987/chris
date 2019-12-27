@@ -25,12 +25,12 @@ public class PullBall extends Command {
 
     @Override
     protected void execute(){
-
+      intake.spinWheels(speed);
     }
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return timer.get() >= timeout;
     }
 
     @Override
