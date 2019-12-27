@@ -25,7 +25,7 @@ public class MoveIntake extends Command {
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return intake.getCurrentPosition() == direction;
     }
 
     @Override
