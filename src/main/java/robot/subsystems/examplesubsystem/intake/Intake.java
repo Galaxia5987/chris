@@ -25,7 +25,7 @@ public class Intake extends Subsystem {
      * set the direction of the solenoid
      */
     public void setPosition(Direction direction){
-        if (direction == direction.UP)
+        if (direction == direction.UP) // TODO: check which boolean is UP and Down
             solenoid.set(false);
         else
             solenoid.set(true);
@@ -34,8 +34,11 @@ public class Intake extends Subsystem {
     /**
      * @return return the position of the intake
      */
-    public boolean getCurrentPosition(){
-        return solenoid.get();
+    public Direction getCurrentPosition(){
+        if (solenoid.get())
+            return Direction.DOWN;
+        else
+            return Direction.UP;
     }
 
     /**
