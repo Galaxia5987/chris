@@ -13,7 +13,7 @@ import static org.apache.commons.lang3.ObjectUtils.CONST;
  * When accessing a mechanism-specific port, call Constants.[MECHANISM].[CONSTANT]
  */
 public class Constants {
-    public static final int TALON_TIME_OUT_MS = 20;
+    public static final int TALON_TIME_OUT_MS = CONST(10);
     //All general constants go here
     //public static final double TIME_STEP = CONST(0.02);
 
@@ -24,13 +24,15 @@ public class Constants {
         public static final boolean CLIMB_ENCODER_INVERTED = false;
 
         public static final double[] CLIMB_PIDF = {0, 0, 0, 0};
+        public static final double CRUISE_ACCELERATIONN = CONST(0);
+        public static final double CRUISE_VELOCITY = CONST(0);
 
         public static final double TICKS_PER_METER = CONST(0);
 
         public static final double GRAVITY_COMPENSATION = CONST(0);
-        public static final double DISABLE_THRESHOLD = 0.05;
+        public static final double DISABLE_THRESHOLD = CONST(0.05);
 
-        public static final double MAX_CLIMB_HEIGHT = 0;
+        public static final double MAX_CLIMB_HEIGHT = CONST(0);
 
 
         //All of the Subsystem specific constants go here,and need to be static.
