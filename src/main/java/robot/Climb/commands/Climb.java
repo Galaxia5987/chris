@@ -1,6 +1,7 @@
 package robot.Climb.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import robot.Constants;
 
 import static robot.Robot.climb;
 
@@ -30,7 +31,7 @@ public class Climb extends Command {
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return climb.getHeight()-0.01 >= height;
     }
 
     @Override
