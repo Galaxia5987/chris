@@ -12,18 +12,29 @@ import java.util.Optional;
  * When accessing a mechanism-specific port, call Constants.[MECHANISM].[CONSTANT]
  */
 public class Constants {
+    public static final int TALON_TIME_OUT_MS = 20;
     //All general constants go here
     //public static final double TIME_STEP = CONST(0.02);
 
+    public static class ClimbSubsystem {
+        public static final boolean CLIMB_MASTER_INVERTED = false;
+        public static final boolean CLIMB_SLAVE_INVERTED = false;
+        public static final boolean RAIL_MOTOR_INVERTED = false;
+        public static final boolean CLIMB_ENCODER_INVERTED = false;
+
+        public static final double[] CLIMB_PIDF = {0, 0, 0, 0};
+
+        public static final double TICKS_PER_METER = CONST(0);
+
+        public static final double GRAVITY_COMPENSATION = CONST(0);
+        public static final double DISABLE_THRESHOLD = 0.05;
+
+        public static final double MAX_CLIMB_HEIGHT = 0;
+
+
+    }
     public static class Intake {
         public static final boolean IS_MOTOR_INVERTED = false;
-    }
-
-    public static class ExampleSubsystem1 {
-        //All of the Subsystem specific constants go here,and need to be static.
-
-        //public static final double TICKS_PER_METER = CONST(256 / (4*0.0254*Math.PI));
-        //public static final double MAX_VELOCITY = CONST(5);
     }
 
     public static class slingshot{
@@ -94,7 +105,7 @@ class BConstants {
     //General constants to be replaced
     //public static final double TIME_STEP = CONST(0.4);
 
-    public static class ExampleSubsystem1 {
+    public static class ClimbSubsystem {
         //public static final double TICKS_PER_METER = CONST(512 / (4*0.0254*Math.PI));
         //public static final double MAX_VELOCITY = CONST(10);
     }

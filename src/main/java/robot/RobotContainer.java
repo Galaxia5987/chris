@@ -13,12 +13,14 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import robot.Climb.commands.Climb;
 import robot.subsystems.examplesubsystem.commands.ExampleCommand;
 import robot.subsystems.examplesubsystem.intake.Intake.*;
 import robot.subsystems.examplesubsystem.intake.commands.MoveIntake;
 import robot.subsystems.examplesubsystem.intake.commands.PullBall;
 import robot.subsystems.examplesubsystem.intake.commands.ShootBall;
 import robot.subsystems.wrist.commands.InsertCube;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -36,7 +38,7 @@ public class RobotContainer {
         configureButtonBindings();
 
         //m_chooser.addOption("Example Auto 1", new DriveStraight());
-        //m_chooser.addOption("Example Auto 2", new ExampleCommand());
+        //m_chooser.addOption("Example Auto 2", new Climb());
         //m_chooser.setDefaultOption();
         Shuffleboard.getTab("Autonomous").add(m_chooser);
     }
@@ -49,7 +51,8 @@ public class RobotContainer {
         x.toggleWhenPressed(new MoveIntake());
         y.whenPressed(new ShootBall(0.5, 5));
         // Grab the hatch when the 'A' button is pressed.
-        new JoystickButton(xbox,1).whenPressed(new ExampleCommand(0.5));
+        new JoystickButton(xbox,1).whenPressed(new Climb(0.5));
+        //new JoystickButton(m_driverController, Button.kB.value).whenPressed(new Climb());
         x.whileHeld(new InsertCube(0.5));
         //new JoystickButton(m_driverController, Button.kB.value).whenPressed(new ExampleCommand());
     }
