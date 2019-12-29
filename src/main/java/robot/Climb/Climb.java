@@ -104,8 +104,8 @@ public class Climb extends Subsystem {
      * @param meters
      * @return The given amount of meters in ticks //TODO: use coefficient instead lol
      */
-    private double convertMetersToTicks(double meters){
-        return meters*Constants.ClimbSubsystem.TICKS_PER_METER;
+    private int convertMetersToTicks(double meters){
+        return (int) (meters*Constants.ClimbSubsystem.TICKS_PER_METER);
     }
 
     @Override
