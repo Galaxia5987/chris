@@ -7,10 +7,19 @@
 
 package robot;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
 import robot.Climb.Climb;
+
+import robot.subsystems.slingshot.slingshotSubsystem;
+import robot.subsystems.examplesubsystem.ExampleSubsystem;
+import robot.subsystems.examplesubsystem.intake.Intake;
+import robot.subsystems.wrist.Gripper;
+import robot.subsystems.wrist.Wrist;
+
 
 
 /**
@@ -21,12 +30,19 @@ import robot.Climb.Climb;
  * project.
  */
 public class Robot extends TimedRobot {
+    public static final Intake intake = new Intake();
     //Robot A toggle (true for robot a, false for robot b)
     public static final boolean isRobotA = true;
     // The robot's subsystems
+
     public static final Climb climb = new Climb();
+    public static final ExampleSubsystem m_example = new ExampleSubsystem();
+    public static final Gripper gripper = new Gripper();
+    public static final Wrist wrist = new Wrist();
+    public static final slingshotSubsystem m_slingshot = new slingshotSubsystem();
     //public static final Elevator m_elevator = new Elevator();
     public static RobotContainer m_robotContainer;
+    public static Compressor compressor = new Compressor(1);
 
     Command m_autonomousCommand;
 
@@ -37,6 +53,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         m_robotContainer = new RobotContainer();
+        compressor.start();
     }
 
 
@@ -50,7 +67,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
-
+        m_slingshot.update();
     }
 
 

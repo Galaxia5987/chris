@@ -1,11 +1,10 @@
 package robot;
 
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Optional;
-
-import static org.apache.commons.lang3.ObjectUtils.CONST;
 
 /**
  * A class holding all of the constants of every mechanism on the robot.
@@ -33,10 +32,17 @@ public class Constants {
         public static final double MAX_CLIMB_HEIGHT = 0;
 
 
-        //All of the Subsystem specific constants go here,and need to be static.
+    }
+    public static class Intake {
+        public static final boolean IS_MOTOR_INVERTED = false;
+    }
 
-        //public static final double TICKS_PER_METER = CONST(256 / (4*0.0254*Math.PI));
-        //public static final double MAX_VELOCITY = CONST(5);
+    public static class slingshot{
+        public static int MAX_MASTER_CURRENT = 40;//[A]
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
+        public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;//[N/M]
+        public static double LENGTH_OF_SPRING = 1;//[M]
     }
 
     static { // Runs alongside main
@@ -77,6 +83,21 @@ public class Constants {
         }
     }
 
+    public class Wrist {
+        public static final int TIMEOUT_MS = 20;
+        public static final int PID_SLOT = 0;
+        public static final double KP = 0;
+        public static final double KI = 0;
+        public static final double KD = 0;
+        public static final double TICKS_PER_DEGREE = 0;
+        public static final boolean MASTER_INVERTED = false;
+        public static final boolean SLAVE_INVERTED = false;
+
+    }
+
+    public static class Gripper {
+        public static final boolean MASTER_INVERTED = false;
+    }
 }
 
 //Anything in this class will replace the original constants when boolean is true
@@ -87,6 +108,14 @@ class BConstants {
     public static class ClimbSubsystem {
         //public static final double TICKS_PER_METER = CONST(512 / (4*0.0254*Math.PI));
         //public static final double MAX_VELOCITY = CONST(10);
+    }
+
+    public static class slingshot{
+        public static int MAX_MASTER_CURRENT = 40;//[A]
+        public static double TICKS_PER_METER = 1;//NOT THE CORRECT NUMBER
+        public static double TOLERANCE = 0;
+        public static double K_SPRING = 1;//[N/M]
+        public static double LENGTH_OF_SPRING = 1;//[M]
     }
 
 }
