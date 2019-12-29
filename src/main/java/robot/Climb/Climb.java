@@ -30,6 +30,9 @@ public class Climb extends Subsystem {
         climbSlave.setInverted(Constants.ClimbSubsystem.CLIMB_SLAVE_INVERTED);
         railMotor.setInverted(Constants.ClimbSubsystem.RAIL_MOTOR_INVERTED);
 
+        climbMaster.configMotionCruiseVelocity(convertMetersToTicks(Constants.ClimbSubsystem.CRUISE_VELOCITY), Constants.TALON_TIME_OUT_MS);
+        climbMaster.configMotionAcceleration(convertMetersToTicks(Constants.ClimbSubsystem.CRUISE_ACCELERATIONN), Constants.TALON_TIME_OUT_MS)
+
         //Encoder invertion
         climbMaster.setSensorPhase(Constants.ClimbSubsystem.CLIMB_ENCODER_INVERTED);
 
@@ -101,8 +104,8 @@ public class Climb extends Subsystem {
      * @param meters
      * @return The given amount of meters in ticks //TODO: use coefficient instead lol
      */
-    private double convertMetersToTicks(double meters){
-        return meters*Constants.ClimbSubsystem.TICKS_PER_METER;
+    private int convertMetersToTicks(double meters){
+        return (int) (meters*Constants.ClimbSubsystem.TICKS_PER_METER);
     }
 
     @Override
