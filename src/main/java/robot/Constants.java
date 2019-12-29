@@ -6,6 +6,8 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Optional;
 
+import static org.apache.commons.lang3.ObjectUtils.CONST;
+
 /**
  * A class holding all of the constants of every mechanism on the robot.
  * Place global constants in this class, and mechanism-specific constants inside their respective mechanism subclass.
