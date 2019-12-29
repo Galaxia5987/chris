@@ -9,10 +9,9 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import robot.Constants;
 import robot.Ports;
 
-import javax.naming.ldap.Control;
 
 /**
- * An example subsystem to represent the basic structure of a robot subsystem
+ * A subsystem for the robot's climb mechanism
  */
 public class Climb extends Subsystem {
 
@@ -81,7 +80,7 @@ public class Climb extends Subsystem {
 
 
     /**
-     *  Called at the end of a climb command, in case the climb is at it's starting position it will not apply any force
+     *  Called at the end of a climb command, in case the climb is at it's starting position it will deny any force from being applied
      */
     public void holdInPlace(){
         if(targetHeight < Constants.ClimbSubsystem.DISABLE_THRESHOLD && getHeight() < Constants.ClimbSubsystem.DISABLE_THRESHOLD)

@@ -1,13 +1,16 @@
 package robot.Climb.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import robot.Robot;
 
 import static robot.Robot.climb;
 
 public class Climb extends Command {
 
     private double height;
+
+    /**
+     *The main command for the climb system, will lift the robot up until the requested {@link #height}
+     */
 
     public Climb(double height) {
         requires(climb);
